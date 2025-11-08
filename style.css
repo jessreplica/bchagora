@@ -1,4 +1,4 @@
-<!-- Gallery Container with Styles and Figures -->
+<!-- Gallery Container with Styles and First Half of Figures -->
 <div class="bch-gallery">
 <style>
 .bch-gallery * {
@@ -50,5 +50,3 @@ color: #8A949D;
 text-align: center;
 }
 </style>
-<input type="text" id="searchInput" placeholder="Search..." onkeyup="filterGallery()">
-<div class="grid" id="galleryGrid">
