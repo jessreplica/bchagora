@@ -65,46 +65,6 @@ transition:all .25s ease;
 <input type="text" id="searchInput" placeholder="Discover Bitcoin Cash..." oninput="filterGallery()">
 
 <div class="grid" id="galleryGrid">
-<!-- put all your <figure> items here -->
-</div>
-</div>
-
-<script>
-function filterGallery() {
-const term = document.getElementById("searchInput").value.toLowerCase().trim();
-const items = document.querySelectorAll("#galleryGrid figure");
-
-items.forEach(item => {
-const text = item.textContent.toLowerCase();
-if (term === "" || text.includes(term)) {
-item.classList.add("match");
-item.style.display = ""; /* make sure it's visible */
-} else {
-item.classList.remove("match");
-item.style.display = "none"; /* completely remove non-matches from layout */
-}
-});
-}
-</script>
-
-<script>
-function filterGallery() {
-const input = document.getElementById('searchInput').value.toLowerCase();
-const figures = document.querySelectorAll('#galleryGrid figure');
-figures.forEach(figure => {
-const caption = figure.querySelector('figcaption').textContent.toLowerCase();
-if (caption.includes(input)) {
-figure.style.display = '';
-} else {
-figure.style.display = 'none';
-}
-});
-}
-</script>
-
-<!-- Exchanges -->
-<div class="bch-gallery">
-<div class="grid" id="galleryGrid">
 <figure><a href="https://axeswap.net/"><img src="https://raw.githubusercontent.com/thecyphercat/bchagora/refs/heads/main/bch%20agora/axeswap.png"></a><figcaption>AxeSwap - DEX</figcaption></figure>
 <figure><a href="https://tapswap.cash/"><img src="https://raw.githubusercontent.com/thecyphercat/bchagora/6960108ec4d9eaa7b010ce9804d21ef2ce8d1a6f/exchanges/tapswap-light.svg"></a><figcaption>TapSwap - DEX</figcaption></figure>
 <figure><a href="https://www.cauldron.quest/"><img src="https://minisatoshi.cash/images/Ecosystem/cauldron.gif"></a><figcaption>Cauldron - DEX</figcaption></figure>
@@ -142,6 +102,38 @@ figure.style.display = 'none';
 <figure><a href="https://app.bch.guru/#/"><img src="https://raw.githubusercontent.com/thecyphercat/bchagora/refs/heads/main/bch%20agora/bitcats.png"></a><figcaption>Bitcats
 - Smart Contract</figcaption></figure>
 <figure><a href="https://app.bch.guru/#/"><img src="https://raw.githubusercontent.com/thecyphercat/bchagora/refs/heads/main/bch%20agora/bch-guru.png"></a><figcaption>BCH Guru - Smart Contract</figcaption></figure>
-<figure><a href="https://bchpump.cash/pump/about"><img src="https://raw.githubusercontent.com/thecyphercat/bchagora/refs/heads/main/bch%20agora/bch-pump.png"></a><figcaption>BCH PUMP - Smart Contract</figcaption></figure>
+<figure><a href="https://bchpump.cash/pump/about"><img src="https://raw.githubusercontent.com/thecyphercat/bchagora/refs/heads/main/bch%20agora/bch-pump.png"></a><figcaption>BCH PUMP - Smart Contract</figcaption></figure></div>
 </div>
-</div>
+
+<script>
+function filterGallery() {
+const term = document.getElementById("searchInput").value.toLowerCase().trim();
+const items = document.querySelectorAll("#galleryGrid figure");
+
+items.forEach(item => {
+const text = item.textContent.toLowerCase();
+if (term === "" || text.includes(term)) {
+item.classList.add("match");
+item.style.display = ""; /* make sure it's visible */
+} else {
+item.classList.remove("match");
+item.style.display = "none"; /* completely remove non-matches from layout */
+}
+});
+}
+</script>
+
+<script>
+function filterGallery() {
+const input = document.getElementById('searchInput').value.toLowerCase();
+const figures = document.querySelectorAll('#galleryGrid figure');
+figures.forEach(figure => {
+const caption = figure.querySelector('figcaption').textContent.toLowerCase();
+if (caption.includes(input)) {
+figure.style.display = '';
+} else {
+figure.style.display = 'none';
+}
+});
+}
+</script>
