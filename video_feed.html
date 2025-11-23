@@ -2,12 +2,11 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<title>Infinite Video Feed - All Videos</title>
+<title>Endless Video Feed - All Videos</title>
 <style>
   body {
     margin: 0;
     background: transparent;
-    font-family: Arial, sans-serif;
   }
   #video-feed {
     max-width: 380px;
@@ -19,19 +18,19 @@
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    background: #fff; /* optional background for better contrast */
+    background: #fff; /* optional background for contrast */
   }
   iframe {
     width: 100%;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 16/9;
     border: none;
-    display: block;
   }
 </style>
 </head>
 <body>
 
 <div id="video-feed"></div>
+<div id="sentinel" style="height:1px;"></div>
 
 <script>
 const videos = [
@@ -83,10 +82,8 @@ const videos = [
   "https://www.pornhub.com/embed/67f8a1e595dc9"
 ];
 
-const container = document.getElementById('video-feed');
-
-function addVideos() {
-  for (let i=0; i<20; i++) {
+function addVideos(count=10) {
+  for (let i=0; i<count; i++) {
     const div = document.createElement('div');
     div.className = 'video-container';
     const iframe = document.createElement('iframe');
@@ -95,27 +92,24 @@ function addVideos() {
     iframe.allow = 'autoplay; fullscreen';
     iframe.allowFullscreen = true;
     div.appendChild(iframe);
-    container.appendChild(div);
+    document.getElementById('video-feed').appendChild(div);
   }
 }
 
-// Create sentinel element at bottom
-const sentinel = document.createElement('div');
-sentinel.style.height = '1px';
-container.appendChild(sentinel);
-
-// Set up observer to load more videos when scrolling near bottom
+// Create an IntersectionObserver to load more when near the bottom
+const sentinel = document.getElementById('sentinel');
 const observer = new IntersectionObserver(entries => {
   if (entries[0].isIntersecting) {
-    addVideos();
+    addVideos(10); // load 10 more videos when near bottom
   }
-}, { rootMargin: '2000px' });
+}, {
+  rootMargin: '200px' // trigger before reaching bottom
+});
 
-// Observe the sentinel
 observer.observe(sentinel);
 
-// Initial load
-addVideos();
+// initial load
+addVideos(10);
 </script>
 </body>
 </html>
