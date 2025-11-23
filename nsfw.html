@@ -1,12 +1,12 @@
-<div id="video-gallery-container" style="padding-top: 20px;"> <!-- this single line does the trick -->
+<div id="video-gallery-container">
 <style>
 #video-gallery-container {
   background: transparent;
-  padding: 20px 0;          /* keeps your bottom/sides padding */
+  padding: 20px 0;      /* top and bottom */
   min-height: 100vh;
+  padding-top: 20px !important;  /* forces exactly 20px everywhere */
 }
 
-/* if you ever want to adjust the top gap later, just change the 60px above */
 #feed {
   width: 380px;
   max-width: 100%;
