@@ -1,17 +1,32 @@
 <div id="video-gallery-container">
 <style>
 #video-gallery-container {
-  all: unset;               /* removes any inherited crap */
-  display: block;
+  background: transparent;   /* no more black */
+  padding: 20px 0;
+  min-height: 100vh;
 }
 
 #feed {
+  width: 380px;
   max-width: 100%;
   margin: 0 auto;
+  overflow-y: auto;           /* scroll only if needed */
+  background: transparent;   /* no dark panel */
+  padding: 12px;
+  border-radius: 0;           /* removed rounded container */
+  box-shadow: none;           /* removed big shadow */
 }
 
+/* Optional: keep scrollbar invisible if you still hate it */
+#feed::-webkit-scrollbar { width: 0; }
+#feed { -ms-overflow-style: none; scrollbar-width: none; }
+
 #feed > div {
-  margin-bottom: 20px;      /* only thing left: a little breathing room between videos */
+  margin-bottom: 16px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);  /* much lighter shadow */
+  background: transparent;   /* no black card background */
 }
 
 #feed iframe {
@@ -20,6 +35,8 @@
   aspect-ratio: 16 / 9;
   border: none;
   display: block;
+  border-radius: 12px;
+  background: #000;           /* only the actual video area stays black (normal) */
 }
 </style>
 
