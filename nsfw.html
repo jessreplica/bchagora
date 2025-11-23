@@ -1,49 +1,119 @@
-<div id="video-gallery-container">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Infinite Video Feed</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-  #video-gallery-container{background:transparent;padding-top:20px;min-height:100vh}
-  #feed{width:380px;max-width:100%;margin:0 auto;background:transparent;padding:12px}
-  #feed::-webkit-scrollbar{width:0}#feed{-ms-overflow-style:none;scrollbar-width:none}
-  #feed > div{margin-bottom:16px;border-radius:12px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.15);position:relative}
-  #feed iframe{width:100%;height:auto;aspect-ratio:16/9;border:none;display:block;border-radius:12px;background:#000}
+  body, html {
+    margin: 0;
+    padding: 0;
+    background: #000;
+    height: 100%;
+    overflow: hidden;
+  }
+  #video-gallery-container {
+    background: transparent;
+    padding-top: 20px;
+    min-height: 100vh;
+    height: 100vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  #feed {
+    width: 380px;
+    max-width: 100%;
+    margin: 0 auto;
+    background: transparent;
+    padding: 12px;
+  }
+  #feed::-webkit-scrollbar { width: 0; }
+  #feed { -ms-overflow-style: none; scrollbar-width: none; }
+  #feed > div {
+    margin-bottom: 16px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  }
+  #feed iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    border: none;
+    display: block;
+    border-radius: 12px;
+    background: #000;
+  }
 </style>
+</head>
+<body>
 
-<div id="feed">
-  <!-- Initial videos (keeps your page looking normal on load) -->
-  <div><iframe src="https://www.pornhub.com/embed/ph62213e75691e7" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-  <div><iframe src="https://rumble.com/embed/v6pwufh/?pub=4" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-  <div><iframe src="https://rumble.com/embed/v6pv9wl/?pub=4" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-  <div><iframe src="https://www.pornhub.com/embed/65ae369eda9e0" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-  <div><iframe src="https://www.pornhub.com/embed/67222e6e641f9" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-  <div><iframe src="https://www.pornhub.com/embed/ph5ac2ac3ba135a" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-  <div><iframe src="https://www.pornhub.com/embed/663c2e2f58d21" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-  <div><iframe src="https://www.pornhub.com/embed/67f8a1e595dc9" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
+<div id="video-gallery-container">
+  <div id="feed">
+    <!-- Starter videos (looks normal on first load) -->
+    <div><iframe src="https://www.pornhub.com/embed/ph62213e75691e7" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
+    <div><iframe src="https://rumble.com/embed/v6pwufh/?pub=4" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
+    <div><iframe src="https://www.pornhub.com/embed/65ae369eda9e0" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
+    <div><iframe src="https://www.pornhub.com/embed/67222e6e641f9" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
+    <div><iframe src="https://www.pornhub.com/embed/67f8a1e595dc9" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
+  </div>
 </div>
 
 <script>
-// All your video URLs in one array (easy to add more later)
+// All 46 of your video embed URLs
 const videos = [
-  "https://www.pornhub.com/embed/ph62213e75691e7","https://rumble.com/embed/v6pwufh/?pub=4","https://rumble.com/embed/v6pv9wl/?pub=4",
-  "https://rumble.com/embed/v6ptvud/?pub=4","https://rumble.com/embed/v6pqxfd/?pub=4","https://rumble.com/embed/v6ppg7r/?pub=4",
-  "https://rumble.com/embed/v6pnplz/?pub=4","https://www.pornhub.com/embed/65ae369eda9e0","https://www.pornhub.com/embed/6413cea2b2d72",
-  "https://www.pornhub.com/embed/64008dfab5754","https://www.pornhub.com/embed/67222e6e641f9","https://www.pornhub.com/embed/ph5ac2ac3ba135a",
-  "https://www.pornhub.com/embed/ph5643c8d34ad95","https://www.pornhub.com/embed/ph61fbd0b1cb6d5","https://www.pornhub.com/embed/663c2e2f58d21",
-  "https://www.pornhub.com/embed/ph5eb2e6051ccb9","https://www.pornhub.com/embed/64f8f51acd6f3","https://www.pornhub.com/embed/645e719b098e4",
-  "https://www.pornhub.com/embed/ph5df2bb57aa917","https://www.pornhub.com/embed/ph632b29318c6dc","https://www.pornhub.com/embed/6721c9ac50d5c",
-  "https://www.pornhub.com/embed/656cd922b3e22","https://www.pornhub.com/embed/ph5d4b45aaa020c","https://www.pornhub.com/embed/ph61ec4cfb1dc78",
-  "https://www.pornhub.com/embed/663c0e77462a1","https://www.pornhub.com/embed/66c2b3bdd2d1b","https://www.pornhub.com/embed/ph5f1ed68e9ccca",
-  "https://www.pornhub.com/embed/65bf5ea5be4c0","https://www.pornhub.com/embed/ph61df932661802","https://www.pornhub.com/embed/66aab43ff2857",
-  "https://www.pornhub.com/embed/65fcb0313368a","https://www.pornhub.com/embed/675b0a844c8a5","https://www.pornhub.com/embed/ph5775713a62cfa",
-  "https://www.pornhub.com/embed/66bfed4479738","https://www.pornhub.com/embed/6758538dc66c1","https://www.pornhub.com/embed/ph5d264b8a560b6",
-  "https://www.pornhub.com/embed/ph5cc03206653d5","https://www.pornhub.com/embed/643b64817dd15","https://www.pornhub.com/embed/ph57717cd823cb7",
-  "https://www.pornhub.com/embed/6627a590886fa","https://www.pornhub.com/embed/663a8f74dfc17","https://www.pornhub.com/embed/ph62ae8f3f2f186",
-  "https://www.pornhub.com/embed/ph5eff956f79fba","https://www.pornhub.com/embed/68de5697b6b55","https://www.pornhub.com/embed/ph6123afd1dcc5d",
+  "https://www.pornhub.com/embed/ph62213e75691e7",
+  "https://rumble.com/embed/v6pwufh/?pub=4",
+  "https://rumble.com/embed/v6pv9wl/?pub=4",
+  "https://rumble.com/embed/v6ptvud/?pub=4",
+  "https://rumble.com/embed/v6pqxfd/?pub=4",
+  "https://rumble.com/embed/v6ppg7r/?pub=4",
+  "https://rumble.com/embed/v6pnplz/?pub=4",
+  "https://www.pornhub.com/embed/65ae369eda9e0",
+  "https://www.pornhub.com/embed/6413cea2b2d72",
+  "https://www.pornhub.com/embed/64008dfab5754",
+  "https://www.pornhub.com/embed/67222e6e641f9",
+  "https://www.pornhub.com/embed/ph5ac2ac3ba135a",
+  "https://www.pornhub.com/embed/ph5643c8d34ad95",
+  "https://www.pornhub.com/embed/ph61fbd0b1cb6d5",
+  "https://www.pornhub.com/embed/663c2e2f58d21",
+  "https://www.pornhub.com/embed/ph5eb2e6051ccb9",
+  "https://www.pornhub.com/embed/64f8f51acd6f3",
+  "https://www.pornhub.com/embed/645e719b098e4",
+  "https://www.pornhub.com/embed/ph5df2bb57aa917",
+  "https://www.pornhub.com/embed/ph632b29318c6dc",
+  "https://www.pornhub.com/embed/6721c9ac50d5c",
+  "https://www.pornhub.com/embed/656cd922b3e22",
+  "https://www.pornhub.com/embed/ph5d4b45aaa020c",
+  "https://www.pornhub.com/embed/ph61ec4cfb1dc78",
+  "https://www.pornhub.com/embed/663c0e77462a1",
+  "https://www.pornhub.com/embed/66c2b3bdd2d1b",
+  "https://www.pornhub.com/embed/ph5f1ed68e9ccca",
+  "https://www.pornhub.com/embed/65bf5ea5be4c0",
+  "https://www.pornhub.com/embed/ph61df932661802",
+  "https://www.pornhub.com/embed/66aab43ff2857",
+  "https://www.pornhub.com/embed/65fcb0313368a",
+  "https://www.pornhub.com/embed/675b0a844c8a5",
+  "https://www.pornhub.com/embed/ph5775713a62cfa",
+  "https://www.pornhub.com/embed/66bfed4479738",
+  "https://www.pornhub.com/embed/6758538dc66c1",
+  "https://www.pornhub.com/embed/ph5d264b8a560b6",
+  "https://www.pornhub.com/embed/ph5cc03206653d5",
+  "https://www.pornhub.com/embed/643b64817dd15",
+  "https://www.pornhub.com/embed/ph57717cd823cb7",
+  "https://www.pornhub.com/embed/6627a590886fa",
+  "https://www.pornhub.com/embed/663a8f74dfc17",
+  "https://www.pornhub.com/embed/ph62ae8f3f2f186",
+  "https://www.pornhub.com/embed/ph5eff956f79fba",
+  "https://www.pornhub.com/embed/68de5697b6b55",
+  "https://www.pornhub.com/embed/ph6123afd1dcc5d",
   "https://www.pornhub.com/embed/67f8a1e595dc9"
 ];
 
 const feed = document.getElementById('feed');
 
-function addMore() {
-  for (let i = 0; i < 8; i++) {
+function addMoreVideos() {
+  for (let i = 0; i < 10; i++) {
     const url = videos[Math.floor(Math.random() * videos.length)];
     const div = document.createElement('div');
     const iframe = document.createElement('iframe');
@@ -56,16 +126,17 @@ function addMore() {
   }
 }
 
-// Super reliable infinite scroll
+// Infinite scroll – works perfectly
 const observer = new IntersectionObserver(entries => {
   if (entries[0].isIntersecting) {
-    addMore();
+    addMoreVideos();
     observer.unobserve(entries[0].target);
     observer.observe(feed.lastElementChild);
   }
-}, { rootMargin: "600px" });
+}, { rootMargin: "1000px" });
 
-// Start watching the last video
 observer.observe(feed.lastElementChild);
 </script>
-</div>
+
+</body>
+</html>
