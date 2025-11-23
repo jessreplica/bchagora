@@ -2,22 +2,19 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<title>Infinite Video Feed</title>
+<title>Full Video Feed</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <style>
-  html, body {
-    height: 100%;
+  body {
     margin: 0;
-    overflow-y: auto;
-    background: transparent; /* keep transparent background */
+    background: transparent; /* Keep your site's background */
   }
-
   #video-feed {
     max-width: 380px;
     margin: 0 auto;
     padding: 20px;
   }
-
+  /* Optional: hide scrollbar for cleaner look */
   #video-feed::-webkit-scrollbar {
     width: 0;
   }
@@ -25,28 +22,25 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
-
   .video-container {
     margin-bottom: 16px;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   }
-
   iframe {
     width: 100%;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 16/9;
     border: none;
     border-radius: 12px;
     background: #000;
-    display: block;
   }
 </style>
 </head>
 <body>
 
 <div id="video-feed">
-  <!-- Initial videos -->
+  <!-- All your videos -->
   <div class="video-container"><iframe src="https://www.pornhub.com/embed/ph62213e75691e7" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
   <div class="video-container"><iframe src="https://rumble.com/embed/v6pwufh/?pub=4" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
   <div class="video-container"><iframe src="https://rumble.com/embed/v6pv9wl/?pub=4" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
@@ -96,7 +90,7 @@
 </div>
 
 <script>
-const videoUrls = [
+const allVideos = [
   "https://www.pornhub.com/embed/ph62213e75691e7",
   "https://rumble.com/embed/v6pwufh/?pub=4",
   "https://rumble.com/embed/v6pv9wl/?pub=4",
@@ -145,29 +139,29 @@ const videoUrls = [
   "https://www.pornhub.com/embed/67f8a1e595dc9"
 ];
 
-const feedContainer = document.getElementById('video-feed');
-
+const feed = document.getElementById('video-feed');
 const sentinel = document.createElement('div');
 sentinel.style.height = '1px';
-feedContainer.appendChild(sentinel);
+feed.appendChild(sentinel);
+
+const loadMoreVideos = () => {
+  for (let i=0; i<20; i++) {
+    const div = document.createElement('div');
+    div.className = 'video-container';
+    const iframe = document.createElement('iframe');
+    iframe.src = allVideos[Math.floor(Math.random() * allVideos.length)];
+    iframe.loading = 'lazy';
+    iframe.allow = 'autoplay; fullscreen';
+    iframe.allowFullscreen = true;
+    div.appendChild(iframe);
+    feed.insertBefore(div, sentinel);
+  }
+};
 
 const observer = new IntersectionObserver(entries => {
   if (entries[0].isIntersecting) {
-    // Load 20 more videos randomly
-    for (let i=0; i<20; i++) {
-      const div = document.createElement('div');
-      div.className = 'video-container';
-      const iframe = document.createElement('iframe');
-      iframe.src = videoUrls[Math.floor(Math.random() * videoUrls.length)];
-      iframe.loading = 'lazy';
-      iframe.allow = 'autoplay; fullscreen';
-      iframe.allowFullscreen = true;
-      div.appendChild(iframe);
-      feedContainer.insertBefore(div, sentinel);
-    }
+    loadMoreVideos();
   }
 }, { rootMargin: '2000px' });
-
+observer.observe(sentinel);
 </script>
-</body>
-</html>
