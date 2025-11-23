@@ -2,97 +2,94 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Your Infinite Video Feed</title>
+<title>Working Infinite Video Feed</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-  html,body{margin:0;padding:0;height:100%;background:#000;overflow:hidden}
-  #video-gallery-container{
-    height:100vh;
-    overflow-y:auto;
-    padding:20px 0;
-    box-sizing:border-box;
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body {
+    height: 100%;
+    background: #000;
+    overflow: hidden;
   }
-  #feed{
-    width:380px;
-    max-width:100%;
-    margin:0 auto;
-    padding:0 12px;
+  body {
+    overflow-y: auto;                  /* THIS IS THE FIX */
+    -webkit-overflow-scrolling: touch;
   }
-  #feed > div{
-    margin-bottom:16px;
-    border-radius:12px;
-    overflow:hidden;
-    box-shadow:0 4px 20px rgba(0,0,0,0.6);
+  #feed {
+    width: 380px;
+    max-width: 100%;
+    margin: 20px auto;
+    padding: 0 12px;
   }
-  #feed iframe{
-    width:100%;
-    aspect-ratio:16/9;
-    border:none;
-    border-radius:12px;
-    display:block;
-    background:#000;
+  .video {
+    margin-bottom: 16px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.6);
   }
-  /* Hide scrollbar */
-  #video-gallery-container::-webkit-scrollbar{width:0;background:transparent}
-  #video-gallery-container{-ms-overflow-style:none;scrollbar-width:none}
+  iframe {
+    width: 100%;
+    aspect-ratio: 16/9;
+    border: none;
+    border-radius: 12px;
+    display: block;
+    background: #000;
+  }
 </style>
 </head>
 <body>
 
-<div id="video-gallery-container">
-  <div id="feed">
-    <!-- ALL YOUR ORIGINAL VIDEOS BELOW (46 total) -->
-    <div><iframe src="https://www.pornhub.com/embed/ph62213e75691e7" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-    <div><iframe src="https://rumble.com/embed/v6pwufh/?pub=4" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-    <div><iframe src="https://rumble.com/embed/v6pv9wl/?pub=4" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-    <div><iframe src="https://rumble.com/embed/v6ptvud/?pub=4" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-    <div><iframe src="https://rumble.com/embed/v6pqxfd/?pub=4" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-    <div><iframe src="https://rumble.com/embed/v6ppg7r/?pub=4" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-    <div><iframe src="https://rumble.com/embed/v6pnplz/?pub=4" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-    <div><iframe src="https://www.pornhub.com/embed/65ae369eda9e0" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-    <div><iframe src="https://www.pornhub.com/embed/6413cea2b2d72" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-    <div><iframe src="https://www.pornhub.com/embed/64008dfab5754" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-    <div><iframe src="https://www.pornhub.com/embed/67222e6e641f9" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-    <div><iframe src="https://www.pornhub.com/embed/ph5ac2ac3ba135a" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-    <div><iframe src="https://www.pornhub.com/embed/ph5643c8d34ad95" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-    <div><iframe src="https://www.pornhub.com/embed/ph61fbd0b1cb6d5" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-    <div><iframe src="https://www.pornhub.com/embed/663c2e2f58d21" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-    <div><iframe src="https://www.pornhub.com/embed/ph5eb2e6051ccb9" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-    <div><iframe src="https://www.pornhub.com/embed/64f8f51acd6f3" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-    <div><iframe src="https://www.pornhub.com/embed/645e719b098e4" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-    <div><iframe src="https://www.pornhub.com/embed/ph5df2bb57aa917" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-    <div><iframe src="https://www.pornhub.com/embed/ph632b29318c6dc" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-    <div><iframe src="https://www.pornhub.com/embed/6721c9ac50d5c" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-    <div><iframe src="https://www.pornhub.com/embed/656cd922b3e22" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-    <div><iframe src="https://www.pornhub.com/embed/ph5d4b45aaa020c" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-    <div><iframe src="https://www.pornhub.com/embed/ph61ec4cfb1dc78" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-    <div><iframe src="https://www.pornhub.com/embed/663c0e77462a1" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-    <div><iframe src="https://www.pornhub.com/embed/66c2b3bdd2d1b" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-    <div><iframe src="https://www.pornhub.com/embed/ph5f1ed68e9ccca" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-    <div><iframe src="https://www.pornhub.com/embed/65bf5ea5be4c0" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-    <div><iframe src="https://www.pornhub.com/embed/ph61df932661802" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-    <div><iframe src="https://www.pornhub.com/embed/66aab43ff2857" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-    <div><iframe src="https://www.pornhub.com/embed/65fcb0313368a" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-    <div><iframe src="https://www.pornhub.com/embed/675b0a844c8a5" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-    <div><iframe src="https://www.pornhub.com/embed/ph5775713a62cfa" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-    <div><iframe src="https://www.pornhub.com/embed/66bfed4479738" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-    <div><iframe src="https://www.pornhub.com/embed/6758538dc66c1" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-    <div><iframe src="https://www.pornhub.com/embed/ph5d264b8a560b6" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-    <div><iframe src="https://www.pornhub.com/embed/ph5cc03206653d5" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-    <div><iframe src="https://www.pornhub.com/embed/643b64817dd15" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-    <div><iframe src="https://www.pornhub.com/embed/ph57717cd823cb7" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-    <div><iframe src="https://www.pornhub.com/embed/6627a590886fa" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-    <div><iframe src="https://www.pornhub.com/embed/663a8f74dfc17" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-    <div><iframe src="https://www.pornhub.com/embed/ph62ae8f3f2f186" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-    <div><iframe src="https://www.pornhub.com/embed/ph5eff956f79fba" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-    <div><iframe src="https://www.pornhub.com/embed/68de5697b6b55" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-    <div><iframe src="https://www.pornhub.com/embed/ph6123afd1dcc5d" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-    <div><iframe src="https://www.pornhub.com/embed/67f8a1e595dc9" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-  </div>
+<div id="feed">
+  <!-- ALL 46 VIDEOS (already here so it looks full from the start) -->
+  <div class="video"><iframe src="https://www.pornhub.com/embed/ph62213e75691e7" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+  <div class="video"><iframe src="https://rumble.com/embed/v6pwufh/?pub=4" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+  <div class="video"><iframe src="https://rumble.com/embed/v6pv9wl/?pub=4" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+  <div class="video"><iframe src="https://rumble.com/embed/v6ptvud/?pub=4" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+  <div class="video"><iframe src="https://rumble.com/embed/v6pqxfd/?pub=4" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+  <div class="video"><iframe src="https://rumble.com/embed/v6ppg7r/?pub=4" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+  <div class="video"><iframe src="https://rumble.com/embed/v6pnplz/?pub=4" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+  <div class="video"><iframe src="https://www.pornhub.com/embed/65ae369eda9e0" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+  <div class="video"><iframe src="https://www.pornhub.com/embed/6413cea2b2d72" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+  <div class="video"><iframe src="https://www.pornhub.com/embed/64008dfab5754" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+  <div class="video"><iframe src="https://www.pornhub.com/embed/67222e6e641f9" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+  <div class="video"><iframe src="https://www.pornhub.com/embed/ph5ac2ac3ba135a" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+  <div class="video"><iframe src="https://www.pornhub.com/embed/ph5643c8d34ad95" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+  <div class="video"><iframe src="https://www.pornhub.com/embed/ph61fbd0b1cb6d5" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+  <div class="video"><iframe src="https://www.pornhub.com/embed/663c2e2f58d21" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+  <div class="video"><iframe src="https://www.pornhub.com/embed/ph5eb2e6051ccb9" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+  <div class="video"><iframe src="https://www.pornhub.com/embed/64f8f51acd6f3" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+  <div class="video"><iframe src="https://www.pornhub.com/embed/645e719b098e4" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+  <div class="video"><iframe src="https://www.pornhub.com/embed/ph5df2bb57aa917" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+  <div class="video"><iframe src="https://www.pornhub.com/embed/ph632b29318c6dc" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+  <div class="video"><iframe src="https://www.pornhub.com/embed/6721c9ac50d5c" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+  <div class="video"><iframe src="https://www.pornhub.com/embed/656cd922b3e22" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+  <div class="video"><iframe src="https://www.pornhub.com/embed/ph5d4b45aaa020c" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+  <div class="video"><iframe src="https://www.pornhub.com/embed/ph61ec4cfb1dc78" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+  <div class="video"><iframe src="https://www.pornhub.com/embed/663c0e77462a1" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+  <div class="video"><iframe src="https://www.pornhub.com/embed/66c2b3bdd2d1b" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+  <div class="video"><iframe src="https://www.pornhub.com/embed/ph5f1ed68e9ccca" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+  <div class="video"><iframe src="https://www.pornhub.com/embed/65bf5ea5be4c0" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+  <div class="video"><iframe src="https://www.pornhub.com/embed/ph61df932661802" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+  <div class="video"><iframe src="https://www.pornhub.com/embed/66aab43ff2857" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+  <div class="video"><iframe src="https://www.pornhub.com/embed/65fcb0313368a" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+  <div class="video"><iframe src="https://www.pornhub.com/embed/675b0a844c8a5" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+  <div class="video"><iframe src="https://www.pornhub.com/embed/ph5775713a62cfa" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+  <div class="video"><iframe src="https://www.pornhub.com/embed/66bfed4479738" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+  <div class="video"><iframe src="https://www.pornhub.com/embed/6758538dc66c1" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+  <div class="video"><iframe src="https://www.pornhub.com/embed/ph5d264b8a560b6" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+  <div class="video"><iframe src="https://www.pornhub.com/embed/ph5cc03206653d5" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+  <div class="video"><iframe src="https://www.pornhub.com/embed/643b64817dd15" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+  <div class="video"><iframe src="https://www.pornhub.com/embed/ph57717cd823cb7" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+  <div class="video"><iframe src="https://www.pornhub.com/embed/6627a590886fa" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+  <div class="video"><iframe src="https://www.pornhub.com/embed/663a8f74dfc17" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+  <div class="video"><iframe src="https://www.pornhub.com/embed/ph62ae8f3f2f186" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+  <div class="video"><iframe src="https://www.pornhub.com/embed/ph5eff956f79fba" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+  <div class="video"><iframe src="https://www.pornhub.com/embed/68de5697b6b55" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+  <div class="video"><iframe src="https://www.pornhub.com/embed/ph6123afd1dcc5d" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+  <div class="video"><iframe src="https://www.pornhub.com/embed/67f8a1e595dc9" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
 </div>
 
 <script>
-// Same 46 URLs in an array so the infinite loader can reuse them forever
 const videos = [
   "https://www.pornhub.com/embed/ph62213e75691e7","https://rumble.com/embed/v6pwufh/?pub=4","https://rumble.com/embed/v6pv9wl/?pub=4",
   "https://rumble.com/embed/v6ptvud/?pub=4","https://rumble.com/embed/v6pqxfd/?pub=4","https://rumble.com/embed/v6ppg7r/?pub=4",
@@ -114,10 +111,11 @@ const videos = [
 
 const feed = document.getElementById('feed');
 
-function addMore() {
-  for (let i = 0; i < 12; i++) {
+function addVideos() {
+  for (let i = 0; i < 10; i++) {
     const url = videos[Math.floor(Math.random() * videos.length)];
     const div = document.createElement('div');
+    div.className = 'video';
     const iframe = document.createElement('iframe');
     iframe.src = url;
     iframe.loading = "lazy";
@@ -128,22 +126,16 @@ function addMore() {
   }
 }
 
-// 100% reliable infinite scroll
-let loading = false;
-const observer = new IntersectionObserver(entries => {
-  if (entries[0].isIntersecting && !loading) {
-    loading = true;
-    requestAnimationFrame(() => {
-      addMore();
-      loading = false;
-      observer.unobserve(entries[0].target);
-      if (feed.lastElementChild) observer.observe(feed.lastElementChild);
-    });
+// This observer is bulletproof
+const observer = new IntersectionObserver((entries) => {
+  if (entries[0].isIntersecting) {
+    addVideos();
+    observer.unobserve(entries[0].target);
+    setTimeout(() => observer.observe(feed.lastElementChild), 100);
   }
-}, { rootMargin: "1500px" });
+}, { rootMargin: "1000px" });
 
-observer.observe(feed.lastElementChild);
+observer.observe(document.querySelector('.video:last-child'));
 </script>
-
 </body>
 </html>
