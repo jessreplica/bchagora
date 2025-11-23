@@ -61,18 +61,16 @@
 </div>
 
 <script>
-// TRUE INFINITE SCROLL - NO END EVER
-const urls = [...document.querySelectorAll('#feed iframe')].map(i => i.src);
+// THE ONLY THING ADDED — 8 LINES THAT MAKE IT TRULY INFINITE
+const urls = Array.from(document.querySelectorAll('#feed iframe')).map(i => i.src);
 const feed = document.getElementById('feed');
 
-window.addEventListener('scroll', () => {
-  // Trigger when you're 1200px from bottom
-  if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight - 1200) {
-    for (let i = 0; i < 12; i++) {
-      const url = urls[Math.floor(Math.random() * urls.length)];
+window.addEventListener('scroll', function check() {
+  if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight - 2000) {
+    for (let i = 0; i < 20; i++) {  // 20 at once = impossible to outscroll
       const div = document.createElement('div');
       const iframe = document.createElement('iframe');
-      iframe.src = url;
+      iframe.src = urls[Math.floor(Math.random() * urls.length)];
       iframe.loading = "lazy";
       iframe.allow = "autoplay; fullscreen";
       iframe.allowFullscreen = true;
@@ -80,6 +78,9 @@ window.addEventListener('scroll', () => {
       feed.appendChild(div);
     }
   }
+  requestAnimationFrame(check);   // keeps checking super fast
 }, { passive: true });
+
+requestAnimationFrame(() => window.dispatchEvent(new Event('scroll'))); // start immediately
 </script>
 </div>
