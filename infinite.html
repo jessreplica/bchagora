@@ -60,18 +60,16 @@
   <div id="loadmore" style="height:10px;"></div>
 </div>
 
-<!-- ←←← ONLY THIS NEW SCRIPT →→→ -->
 <script>
-// Collect all video URLs once
-const videoUrls = Array.from(document.querySelectorAll('#feed iframe')).map(i => i.src);
+// TRUE INFINITE SCROLL - NO END EVER
+const urls = [...document.querySelectorAll('#feed iframe')].map(i => i.src);
 const feed = document.getElementById('feed');
 
-// This method works 100% everywhere — no IntersectionObserver needed
 window.addEventListener('scroll', () => {
-  if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight - 1000) {
-    // Add 8 random videos when near bottom
-    for (let i = 0; i < 8; i++) {
-      const url = videoUrls[Math.floor(Math.random() * videoUrls.length)];
+  // Trigger when you're 1200px from bottom
+  if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight - 1200) {
+    for (let i = 0; i < 12; i++) {
+      const url = urls[Math.floor(Math.random() * urls.length)];
       const div = document.createElement('div');
       const iframe = document.createElement('iframe');
       iframe.src = url;
@@ -82,6 +80,6 @@ window.addEventListener('scroll', () => {
       feed.appendChild(div);
     }
   }
-});
+}, { passive: true });
 </script>
 </div>
