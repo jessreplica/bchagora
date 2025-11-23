@@ -1,10 +1,10 @@
 <div id="video-gallery-container">
 <style>
-#video-gallery-container{background:transparent;padding-top:20px;min-height:100vh}
-#feed{width:380px;max-width:100%;margin:0 auto;overflow-y:auto;background:transparent;padding:12px}
-#feed::-webkit-scrollbar{width:0}#feed{-ms-overflow-style:none;scrollbar-width:none}
-#feed > div{margin-bottom:16px;border-radius:12px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.15);position:relative}
-#feed iframe{width:100%;height:auto;aspect-ratio:16/9;border:none;display:block;border-radius:12px;background:#000}
+  #video-gallery-container{background:transparent;padding-top:20px;min-height:100vh}
+  #feed{width:380px;max-width:100%;margin:0 auto;background:transparent;padding:12px}
+  #feed::-webkit-scrollbar{width:0}#feed{-ms-overflow-style:none;scrollbar-width:none}
+  #feed > div{margin-bottom:16px;border-radius:12px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.15);position:relative}
+  #feed iframe{width:100%;height:auto;aspect-ratio:16/9;border:none;display:block;border-radius:12px;background:#000}
 </style>
 
 <div id="feed">
@@ -57,25 +57,52 @@
 </div>
 
 <script>
-// Tiny fallback only for extremely rare browsers that don’t support loading="lazy" on iframes
-document.addEventListener("DOMContentLoaded", () => {
-  if ('loading' in HTMLIFrameElement.prototype) return;
+// 1. Collect all video URLs once
+const videoUrls = Array.from(document.querySelectorAll('#feed iframe')).map(iframe => iframe.src);
 
-  const iframes = document.querySelectorAll('#feed iframe');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.src = entry.target.dataset.src || entry.target.src;
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { rootMargin: "300px" });
+// 2. Infinite scroll – super lightweight
+const feed = document.getElementById('feed');
 
-  iframes.forEach(iframe => {
-    iframe.dataset.src = iframe.src;
-    iframe.src = "about:blank";
-    observer.observe(iframe);
-  });
-});
+const addMoreVideos = () => {
+  // Add 8 random videos from the original list (feels endless & varied)
+  for (let i = 0; i < 8; i++) {
+    const randomUrl = videoUrls[Math.floor(Math.random() * videoUrls.length)];
+    const div = document.createElement('div');
+    const iframe = document.createElement('iframe');
+    iframe.src = randomUrl;
+    iframe.allow = "autoplay; fullscreen";
+    iframe.allowFullscreen = true;
+    iframe.loading = "lazy";
+    div.appendChild(iframe);
+    feed.appendChild(div);
+  }
+};
+
+// Trigger when user is near the bottom
+let loading = false;
+const observer = new IntersectionObserver(entries => {
+  if (entries[0].isIntersecting && !loading) {
+    loading = true;
+    // Small delay so it feels natural
+    setTimeout(() => {
+      addMoreVideos();
+      loading = false;
+    }, 300);
+  }
+}, { root: null, rootMargin: "400px" });  // 400px before bottom
+
+// Observe the very last item (will change as we add more)
+const updateObserverTarget = () => observer.observe(feed.lastElementChild);
+updateObserverTarget();
+
+// Re-attach observer every time we add new items
+const originalAddMoreVideos = addMoreVideos;
+addMoreVideos = () => {
+  originalAddMoreVideos();
+  updateObserverTarget();
+};
+
+// Initial call in case the page is already short
+if (feed.scrollHeight <= window.innerHeight + 1000) addMoreVideos();
 </script>
 </div>
