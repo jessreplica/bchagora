@@ -1,23 +1,23 @@
-<div id="video-gallery-container">
+<div id="video-gallery-container" style="padding-top: 60px;"> <!-- this single line does the trick -->
 <style>
 #video-gallery-container {
-  background: transparent;   /* no more black */
-  padding: 20px 0;
+  background: transparent;
+  padding: 20px 0;          /* keeps your bottom/sides padding */
   min-height: 100vh;
 }
 
+/* if you ever want to adjust the top gap later, just change the 60px above */
 #feed {
   width: 380px;
   max-width: 100%;
   margin: 0 auto;
-  overflow-y: auto;           /* scroll only if needed */
-  background: transparent;   /* no dark panel */
+  overflow-y: auto;
+  background: transparent;
   padding: 12px;
-  border-radius: 0;           /* removed rounded container */
-  box-shadow: none;           /* removed big shadow */
+  border-radius: 0;
+  box-shadow: none;
 }
 
-/* Optional: keep scrollbar invisible if you still hate it */
 #feed::-webkit-scrollbar { width: 0; }
 #feed { -ms-overflow-style: none; scrollbar-width: none; }
 
@@ -25,8 +25,8 @@
   margin-bottom: 16px;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);  /* much lighter shadow */
-  background: transparent;   /* no black card background */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  background: transparent;
 }
 
 #feed iframe {
@@ -36,7 +36,7 @@
   border: none;
   display: block;
   border-radius: 12px;
-  background: #000;           /* only the actual video area stays black (normal) */
+  background: #000;
 }
 </style>
 
