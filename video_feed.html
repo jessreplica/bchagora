@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<title>Isolated Endless Video Feed</title>
+<title>Fully Isolated Endless Videos</title>
 </head>
 <body>
 
 <!-- Container for the shadow DOM -->
-<div id="video-container"></div>
+<div id="video-host"></div>
 
 <script>
 const videos = [
@@ -63,12 +63,14 @@ const host = document.createElement('div');
 document.body.appendChild(host);
 const shadow = host.attachShadow({ mode: 'open' });
 
-// Inject minimal styles to keep everything isolated and transparent
+// inject minimal styles to make everything invisible except videos
 shadow.innerHTML = `
   <style>
     :host {
       all: initial;
       display: block;
+      margin: 0;
+      padding: 0;
     }
     #video-feed {
       display: flex;
@@ -105,21 +107,22 @@ function addVideos(count=10) {
   }
 }
 
-// Create sentinel element at the bottom for infinite scroll detection
+// create sentinel for infinite scroll detection
 const sentinel = document.createElement('div');
 sentinel.style.height = '1px';
 shadow.querySelector('#video-feed').appendChild(sentinel);
 
-// Set up IntersectionObserver for infinite loading
+// observer to load more videos when near bottom
 const observer = new IntersectionObserver(entries => {
   if (entries[0].isIntersecting) {
-    addVideos(10); // Add 10 more videos when near the bottom
+    addVideos(10);
   }
 }, {
-  rootMargin: '200px'
+  rootMargin: '200px' // trigger before reaching bottom
 });
+
 observer.observe(sentinel);
 
-// Initial load
+// initial load
 addVideos(10);
 </script>
