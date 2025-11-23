@@ -2,35 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<title>Endless Video Feed - All Videos</title>
-<style>
-  body {
-    margin: 0;
-    background: transparent;
-  }
-  #video-feed {
-    max-width: 380px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  .video-container {
-    margin-bottom: 20px;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    background: #fff; /* optional background for contrast */
-  }
-  iframe {
-    width: 100%;
-    aspect-ratio: 16/9;
-    border: none;
-  }
-</style>
+<title>Isolated Endless Video Feed</title>
 </head>
 <body>
 
-<div id="video-feed"></div>
-<div id="sentinel" style="height:1px;"></div>
+<!-- Container for the shadow DOM -->
+<div id="video-container"></div>
 
 <script>
 const videos = [
@@ -82,8 +59,40 @@ const videos = [
   "https://www.pornhub.com/embed/67f8a1e595dc9"
 ];
 
+const host = document.createElement('div');
+document.body.appendChild(host);
+const shadow = host.attachShadow({ mode: 'open' });
+
+// Inject minimal styles to keep everything isolated and transparent
+shadow.innerHTML = `
+  <style>
+    :host {
+      all: initial;
+      display: block;
+    }
+    #video-feed {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .video-container {
+      margin-bottom: 20px;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    iframe {
+      width: 100%;
+      aspect-ratio: 16/9;
+      border: none;
+    }
+  </style>
+  <div id="video-feed"></div>
+`;
+
+const feed = shadow.querySelector('#video-feed');
+
 function addVideos(count=10) {
-  for (let i=0; i<count; i++) {
+  for (let i = 0; i < count; i++) {
     const div = document.createElement('div');
     div.className = 'video-container';
     const iframe = document.createElement('iframe');
@@ -92,24 +101,25 @@ function addVideos(count=10) {
     iframe.allow = 'autoplay; fullscreen';
     iframe.allowFullscreen = true;
     div.appendChild(iframe);
-    document.getElementById('video-feed').appendChild(div);
+    feed.appendChild(div);
   }
 }
 
-// Create an IntersectionObserver to load more when near the bottom
-const sentinel = document.getElementById('sentinel');
+// Create sentinel element at the bottom for infinite scroll detection
+const sentinel = document.createElement('div');
+sentinel.style.height = '1px';
+shadow.querySelector('#video-feed').appendChild(sentinel);
+
+// Set up IntersectionObserver for infinite loading
 const observer = new IntersectionObserver(entries => {
   if (entries[0].isIntersecting) {
-    addVideos(10); // load 10 more videos when near bottom
+    addVideos(10); // Add 10 more videos when near the bottom
   }
 }, {
-  rootMargin: '200px' // trigger before reaching bottom
+  rootMargin: '200px'
 });
-
 observer.observe(sentinel);
 
-// initial load
+// Initial load
 addVideos(10);
 </script>
-</body>
-</html>
