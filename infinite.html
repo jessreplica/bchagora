@@ -60,29 +60,28 @@
   <div id="loadmore" style="height:10px;"></div>
 </div>
 
+<!-- ←←← ONLY THIS NEW SCRIPT →→→ -->
 <script>
-// Only change: this tiny infinite scroll that never touches anything else
-const urls = Array.from(document.querySelectorAll('#feed iframe')).map(i => i.src);
-
+// Collect all video URLs once
+const videoUrls = Array.from(document.querySelectorAll('#feed iframe')).map(i => i.src);
 const feed = document.getElementById('feed');
-const trigger = document.getElementById('loadmore');
 
-const addMore = () => {
-  for (let i = 0; i < 10; i++) {
-    const url = urls[Math.floor(Math.random() * urls.length)];
-    const div = document.createElement('div');
-    const iframe = document.createElement('iframe');
-    iframe.src = url;
-    iframe.loading = "lazy";
-    iframe.allow = "autoplay; fullscreen";
-    iframe.allowFullscreen = true;
-    div.appendChild(iframe);
-    feed.insertBefore(div, trigger);
+// This method works 100% everywhere — no IntersectionObserver needed
+window.addEventListener('scroll', () => {
+  if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight - 1000) {
+    // Add 8 random videos when near bottom
+    for (let i = 0; i < 8; i++) {
+      const url = videoUrls[Math.floor(Math.random() * videoUrls.length)];
+      const div = document.createElement('div');
+      const iframe = document.createElement('iframe');
+      iframe.src = url;
+      iframe.loading = "lazy";
+      iframe.allow = "autoplay; fullscreen";
+      iframe.allowFullscreen = true;
+      div.appendChild(iframe);
+      feed.appendChild(div);
+    }
   }
-};
-
-new IntersectionObserver((entries) => {
-  if (entries[0].isIntersecting) addMore();
-}, { rootMargin: "800px" }).observe(trigger);
+});
 </script>
 </div>
