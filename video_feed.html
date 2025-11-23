@@ -1,20 +1,33 @@
-<!-- Place this in your webpage where you'd like the video feed -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Isolated Infinite Video Feed</title>
+<style>
+  body {
+    margin: 0;
+    background: transparent; /* Keep page background unaffected */
+  }
+</style>
+</head>
+<body>
+
+<!-- Container for the Shadow DOM -->
 <div id="video-feed-root"></div>
 
 <script>
-  // Create a Shadow DOM inside the container
+  // Create the shadow root container
   const container = document.getElementById('video-feed-root');
-  const shadowRoot = container.attachShadow({ mode: 'open' });
+  const shadow = container.attachShadow({ mode: 'open' });
 
-  // Insert full content inside the shadow root
-  shadowRoot.innerHTML = `
+  // Insert all the content inside the shadow DOM
+  shadow.innerHTML = `
     <style>
-      /* Keep background transparent, no site styles affected */
+      /* Keep background transparent */
       html, body {
         margin: 0;
         padding: 0;
         background: transparent;
-        font-family: sans-serif;
       }
       #video-feed {
         max-width: 380px;
@@ -22,7 +35,7 @@
         padding: 20px;
         background: transparent;
       }
-      /* Optional: hide scrollbar for cleaner look */
+      /* Hide scrollbar for cleaner look (optional) */
       #video-feed::-webkit-scrollbar {
         width: 0;
       }
@@ -38,17 +51,15 @@
       }
       iframe {
         width: 100%;
-        aspect-ratio: 16/9;
+        aspect-ratio: 16 / 9;
         border: none;
         border-radius: 12px;
         background: #000;
       }
     </style>
-    <div id="video-feed">
-      <!-- All videos will be dynamically added here -->
-    </div>
+    <div id="video-feed"></div>
     <script>
-      // All your video URLs
+      // List of all your videos
       const allVideos = [
         "https://www.pornhub.com/embed/ph62213e75691e7",
         "https://rumble.com/embed/v6pwufh/?pub=4",
@@ -98,13 +109,15 @@
         "https://www.pornhub.com/embed/67f8a1e595dc9"
       ];
 
-      const feed = document.querySelector('#video-feed');
+      const feedDiv = document.getElementById('video-feed');
 
+      // Sentinel element for infinite scroll
       const sentinel = document.createElement('div');
       sentinel.style.height = '1px';
-      feed.appendChild(sentinel);
+      feedDiv.appendChild(sentinel);
 
-      const loadMore = () => {
+      // Load 20 random videos
+      const loadMoreVideos = () => {
         for (let i=0; i<20; i++) {
           const div = document.createElement('div');
           div.className = 'video-container';
@@ -114,13 +127,14 @@
           iframe.allow = 'autoplay; fullscreen';
           iframe.allowFullscreen = true;
           div.appendChild(iframe);
-          feed.insertBefore(div, sentinel);
+          feedDiv.insertBefore(div, sentinel);
         }
       };
 
+      // Intersection observer for infinite scroll
       const observer = new IntersectionObserver(entries => {
         if (entries[0].isIntersecting) {
-          loadMore();
+          loadMoreVideos();
         }
       }, { rootMargin: '2000px' });
 
@@ -128,3 +142,6 @@
     </script>
   `;
 </script>
+
+</body>
+</html>
