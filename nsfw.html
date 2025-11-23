@@ -26,6 +26,7 @@
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   background: transparent;
+  position: relative;
 }
 
 #feed iframe {
@@ -88,4 +89,28 @@
 <div><iframe src="https://www.pornhub.com/embed/ph6123afd1dcc5d" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
 <div><iframe src="https://www.pornhub.com/embed/67f8a1e595dc9" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
 </div>
+
+<script>
+// Tiny fallback for browsers that don’t fully support iframe loading="lazy" yet
+document.addEventListener("DOMContentLoaded", function() {
+  if ('loading' in HTMLIFrameElement.prototype) return; // Native lazy already works → do nothing
+
+  const iframes = document.querySelectorAll('#feed iframe');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const iframe = entry.target;
+        iframe.src = iframe.dataset.src || iframe.src;
+        observer.unobserve(iframe);
+      }
+    });
+  }, { rootMargin: "200px" });
+
+  iframes.forEach(iframe => {
+    iframe.dataset.src = iframe.src;
+    iframe.src = "about:blank"; // Prevent immediate load
+    observer.observe(iframe);
+  });
+});
+</script>
 </div>
