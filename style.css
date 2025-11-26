@@ -6,17 +6,19 @@
   color:#fff;
   width:90vmin;
   max-width:1200px;
-  margin:4vmin auto;
-  padding:4vmin 4vmin 5vmin;
+  margin:4vmin auto 4vmin;   /* only bottom margin to separate from other page sections */
+  padding:0 4vmin 5vmin;      /* ← ZERO top padding */
   border-radius:12px;
   display:flex;
   flex-direction:column;
+  gap:3vmin;                  /* replaces the old spacing that was creating top gap */
 }
 
+/* Search bar – sits right at the top with almost no gap */
 .bch-gallery input {
   width:100%;
   max-width:420px;
-  margin:0 auto 6px auto;
+  margin:0 auto 6px auto;     /* only tiny bottom gap */
   padding:1.4vmin 2.4vmin;
   border:none;
   border-radius:30px;
@@ -25,36 +27,67 @@
   color:#c1d9e9;
   box-shadow:inset 0 2px 6px rgba(0,0,0,.5);
 }
-.bch-gallery input:focus {outline:none; box-shadow:0 0 0 3px #66c0f4, inset 0 2px 6px rgba(0,0,0,.5);}
+.bch-gallery input:focus {
+  outline:none;
+  box-shadow:0 0 0 3px #66c0f4, inset 0 2px 6px rgba(0,0,0,.5);
+}
 
-/* Grid styles */
+/* Grid – starts immediately, no top margin anywhere */
 #galleryGrid {
   display:grid;
   grid-template-columns:repeat(4,160px);
   grid-auto-rows:190px;
   gap:3vmin;
   justify-content:center;
+  margin:0;                   /* explicit zero */
+  padding:0;                  /* explicit zero */
 }
+
 #galleryGrid figure {width:160px; margin:0;}
 #galleryGrid img {
-  width:160px;height:160px;
+  width:160px;
+  height:160px;
   object-fit:contain;
   background:#171a21;
   padding:12px;
   border-radius:12px;
   transition:all .25s ease;
 }
-#galleryGrid img:hover {transform:scale(1.08); box-shadow:0 0 20px rgba(102,192,244,.7);}
-#galleryGrid figcaption {margin-top:8px;font-size:14px;color:#acb2b8;text-align:center;line-height:1.3;}
-
-/* Responsive styles */
-@media(max-width:900px){#galleryGrid{grid-template-columns:repeat(3,160px);}}
-@media(max-width:560px){
-  #galleryGrid{grid-template-columns:repeat(2,160px);gap:4vmin;}
-  .bch-gallery{width:95vw;padding:5vw;}
-  .bch-gallery input{max-width:100%;padding:2vmin 3vmin;font-size:16px;margin-bottom:10px;}
+#galleryGrid img:hover {
+  transform:scale(1.08);
+  box-shadow:0 0 20px rgba(102,192,244,.7);
+}
+#galleryGrid figcaption {
+  margin-top:8px;
+  font-size:14px;
+  color:#acb2b8;
+  text-align:center;
+  line-height:1.3;
 }
 
-/* Match filtering */
-#galleryGrid figure { order: 1; }
-#galleryGrid figure.match { order: -1; }
+/* Responsive – still zero top space on small screens */
+@media (max-width:900px) {
+  #galleryGrid { grid-template-columns:repeat(3,160px); }
+}
+@media (max-width:560px) {
+  .bch-gallery {
+    width:95vw;
+    padding:0 5vw 6vw;       /* still zero top padding */
+    margin-top:4vmin;        /* only if you need separation from header */
+    border-radius:0;         /* optional: full-bleed on mobile like Steam */
+  }
+  #galleryGrid {
+    grid-template-columns:repeat(2,160px);
+    gap:4vmin;
+  }
+  .bch-gallery input {
+    max-width:100%;
+    padding:2.5vmin 3vmin;
+    font-size:16px;
+    margin-bottom:10px;
+  }
+}
+
+/* Search filtering */
+#galleryGrid figure { order:1; }
+#galleryGrid figure.match { order:-1; }
