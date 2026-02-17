@@ -1,0 +1,154 @@
+Exit Debasing Dollars
+Money is merely a measuring tool. Dollars fail to reflect value as if they weren't even an asset, devolved into valueless credits.
+
+Lifespan (years)	Usefulness	Governance	Unit Cap
+Ꞩ (sats)	∞	∞	hard-fork consensus	2.1Q
+USA	100	limited	centralized	∞
+Britain	105	limited	centralized	∞
+France	95	limited	centralized	∞
+Netherlands	78	limited	centralized	∞
+Spain	111	limited	centralized	∞
+Portugal	80	limited	centralized	∞
+
+BTC Was Hijacked
+Monetary energy is constant and naturally shifts to where it's most useful. Self-sustaining on-chain revenue decides which Bitcoin software implementation leads crypto onward.
+
+The Fundamental 5
+The differences between the original design and Bitcoin Core's new design can be captured with five critical ideas.
+
+1. Bitcoin was designed to be digital cash used to make payments over the internet.
+
+2. Bitcoin was designed to have extremely low transaction fees.
+
+3. Bitcoin was designed to scale with blocksize increases.
+
+4. Bitcoin was not designed for the average user to run his own node.
+
+5. Bitcoin's economic design is as important as its software design.
+
+Satoshis
+Bitcoin Cash is value reflection software. Satoshis reflect all humanity's infinite hard work, time and abundance securely and accurately with absolute trustlessness.
+
+Bitcoin Cash is supported by multiple independent development teams. Changes are allowed/disallowed by mining operations in consensus. Miners aren't required to be honest, only to be sufficiently willing to earn as much as the blockchain allows. No single group controls it.
+
+“It is a global distributed database, with additions to the database by consent of the majority.” — Satoshi
+
+Dishonest Miners
+Despite dishonesty among Core developers and mining operations, and the breaking of the New York Agreement, Bitcoin developers took proactive steps to protect the original vision of Bitcoin. They created a contingency backup of the software, known as Bitcoin Cash (BCH), before any non-consensual changes took hold.
+"I consider BCH a legitimate contender for the bitcoin name. I consider bitcoin's failure to raise block sizes to keep fees reasonable to be a large (non-consensual) change to the "original plan", morally tantamount to a hard fork."
+— Vitalik
+
+Hard-Fork Consensus
+The CHIP process on the BCH network is designed to be systematic, accountable, predictable, non-coercive, and gradual, allowing for thorough evaluation and commitment before any proposed changes are implemented. This structured approach ensures the network's stability both in minimizing controversial, reckless changes and accommodating widely accepted, needed changes.
+
+"In a correctly functioning Bitcoin network no soft forks
+should ever happen." — Mike Hearn
+
+Reclaim Your Power
+
+Bitcoin Cash operates as a decentralized peer-to-peer electronic cash system, allowing users to send and receive without the need for any centralized intermediary.
+
+"A purely peer-to-peer version of electronic cash would allow online payments to be sent directly from one party to another without going through a financial institution."
+— Satoshi
+
+It Never Really Hits a Scale Ceiling
+Bitcoin Cash performs both autonomously and economically with no need to reject the majority of users by increasing costs.
+The more users we have, the stronger and more decentralized Bitcoin Cash becomes.
+"The existing Visa credit card network processes about 15 million Internet purchases per day worldwide. Bitcoin can already scale much larger than that with existing hardware for a fraction of the cost. It never really hits a scale ceiling. If you're interested, I can go over the ways it would cope with extreme size."
+— Satoshi
+
+Adaptive Blocksize
+
+Users Just Being Users
+Purchasing power is a reflection of usefulness. As user volume increases, on-chain spending sustains the growth, sustainability and decentralization of mining operations.
+
+"The current system where every user is a network node is not the intended configuration for large scale. That would be like every Usenet user [running] their own NNTP server. The design supports letting users just be users. The more burden it is to run a node, the fewer nodes there will be. Those few nodes will be big server farms. The rest will be client nodes that only do transactions and don't generate." — Satoshi
+
+click image to view
+Untitled
+You Have Options
+Spending
+builds purchasing power
+
+Stabilizing
+until sats replace dollars
+
+Earning
+from the volatility
+
+Untitled
+Visa, Who?
+By adopting self-custody systems as the norm, Bitcoin Cash defies the limitations of Visa and Mastercard, paving the way for a more empowering financial future.
+
+Privacy 👻
+Cash operates both publicly and privately, allowing users to maintain complete anonymity through CashFusion, which merges transactions without the risks and fees associated with traditional coin mixing, making it an essential protocol for secure and private transactions.
+
+Agorism
+Agorism is a political philosophy and social movement that promotes a society built on voluntary, free-market exchanges, free from state intervention. Its core principles include:
+Counter-Economics: Agorists practice "counter-economics," engaging in unregulated, untaxed activities like bartering, using cryptocurrencies, or participating in underground markets to bypass government control.
+Bitcoin Cash and DeFi: Bitcoin Cash enables access to the vast, hidden world of decentralized finance (DeFi). True freedom requires navigating this underground economy, avoiding conformity and over-compliant "sheeple" who hinder liberty.
+Peaceful Revolution: Agorists advocate a non-violent shift from statism by expanding the counter-economy. As this alternative economy grows, it aims to render the state obsolete.
+Black and Gray Markets: Participation in black and gray markets, where goods and services are traded without state oversight, is seen as a practical step toward a freer society.
+Self-Reliance and Community: Agorists emphasize self-sufficiency, mutual aid, and decentralized networks that operate independently of state systems.
+Technology and Privacy: Leveraging tools like encryption and blockchain, agorists enable secure, anonymous transactions and communications to support counter-economic activities.
+Introduced by Samuel Edward Konkin III in his 1980 New Libertarian Manifesto, agorism derives its name from the Greek "agora" (marketplace), symbolizing its commitment to free-market solutions for social and economic organization.
+CashTokens
+By harnessing the robust UTXO model for native tokens and smart contracts, users and developers gain significant control while eliminating the need for intermediaries.
+
+Untitled
+Escrow
+Utilize escrow to ensure privacy while acquiring cryptocurrency. Multiple Bitcoin Cash applications offer this service, enabling users to maintain confidentiality.
+
+Instant & Secure
+Double-spending with Bitcoin Cash (BCH) is effectively thwarted by the blockchain's robust design, which includes consensus mechanisms and security enhancements for 0-confirmation transactions, making it a negligible concern for everyday use. The community's proactive measures, like double spend proofs, further ensure that BCH transactions are secure, allowing users to transact with confidence even before confirmations are received.
+
+High Precision Arithmetic
+Ensuring compatibility with modern systems is crucial for longevity. By implementing scalable mathematics, we can guarantee adaptability for future developments. Expanding address space not only enhances functionality but allows for a greater number of users and transactions. This improvement bolsters security by minimizing the risk of address collisions, streamlining data processing, and ultimately delivering superior performance and faster calculations.
+
+CHIP 2024-07 BigInt
+
+1000 x Efficiency
+"Ethereum developers can think of Bitcoin Cash as featuring transaction-level sharding of both data and execution, account abstraction, deterministic gas pricing, all-or-nothing transaction chaining, zero-delay re-spending, a wider selection of MEV-resistance strategies, and no-fee contract deployment – user wallets both “deploy” and “destroy” contracts incrementally as part of their usage, improving overall network throughput and real-world privacy. All of this exists at “layer 1”, with exceptionally low-bandwidth transactions, low-resource archival nodes, ever-improving scalability (already 25,000 transactions per second on modest, 2020 hardware), and multiple strategies for “layer 2” systems if needed (e.g. Lightning Network would be more bandwidth-efficient on Bitcoin Cash than on BTC).
+The tradeoff between Ethereum and Bitcoin Cash is development complexity: Ethereum contracts use a simpler, single-threaded, global-state model vs. the multithreaded, stateless-validation model used by Bitcoin Cash, so Ethereum contracts are easier to develop but far more expensive to use. This architectural difference allows decentralized applications built on Bitcoin Cash to scale to millions of users without increasing transaction fees, even during periods of high network activity."
+- Bitcoin.com
+
+Anti-War
+The remaining 1% of the dollar's value relies on offloading debt to neighboring countries, where citizens pay taxes under the threat of violence and the instability of war. However, neighboring countries and their citizens now have a chance to reclaim their power.
+
+"For in every country of the world, I believe, the avarice and injustice of princes and sovereign states abusing the confidence of their subjects, have by degrees diminished the real quality of the metal, which had been originally contained in their coins." — Adam Smith 1776
+
+Learn More
+
+Stewardship
+Being a good steward of money involves financial intentionality and following core principles, which foster peace, blesses others, and creates a positive impact.
+
+Earn
+Purchasing power increases with usefulness. The Bitcoin Cash blockchain enables high-velocity transactions for ideas (Native CashTokens) to come to life.
+
+Budget
+Create a budget that you can manage effectively, ideally with a partner if applicable, ensuring to include essential expenses like spending, saving, and charitable giving.
+
+Give Generously
+Be intentional about giving a portion of your income as it fosters generosity amongst God's kingdom, guards against greed, and demonstrates trust.
+
+Avoid Debt
+Live within your means to avoid unnecessary debt, and if you do have debt, create a repayment plan and utilize local food banks if needed.
+
+Discover Purpose
+Discovering purpose is discovering ourselves. We are most useful to each other through the powers of creation, love and mercy.
+
+Realize Your
+Abundant Nature
+We are abundant beings capable of boundless creation. Satoshis simply reflect this across time and space.
+
+Save For The Future
+Set aside as many Ꞩ's (sats) as you need in self-custody even in small amounts, to prepare for long-term financial security.
+
+It's Just Money
+Money isn't God, it's not abundance, it's meant to fade into the background as we live our lives.
+
+Health Is Wealth
+Take care of yourself and your loved ones, they're all that matters.
+
+For more information read the whitepaper.
+
